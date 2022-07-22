@@ -13,5 +13,5 @@ list(itertools.accumulate(k))
 import operator
 k = [1,2,3,4]
 list(itertools.accumulate(k, operator.mul))
-//1,2,6,24
+// [1,2,6,24]
 ```
