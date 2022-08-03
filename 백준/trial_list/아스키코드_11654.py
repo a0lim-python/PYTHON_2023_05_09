@@ -1,3 +1,9 @@
+## SOLVED
+a = int(input())
+print(ord(a)) ## ascii code
+
+######################
+
 ## NOT SOLVED
 
 a = input()
