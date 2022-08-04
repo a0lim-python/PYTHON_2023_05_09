@@ -10,7 +10,7 @@ list(a) // ['1', '2', '3', '4', '5']
 a = '734 893'
 a[::-1] // '398 437'
 ```
-* 2. 리스트 뒤집기
+* 리스트 뒤집기
    - reverse()
 ```
 a = '734 893'
@@ -20,8 +20,52 @@ result = '.'join(a) // '398 437'
 ```
 
 * 단어 변환
+  - replace
 ```
 a = 'abc'
 a = a.replace('a', '*')
 print(a) ## '*bc'
+```
+
+* 변수 내의 위치 찾기
+  - find
+  ```
+  a = 'abcd'
+  a.find('a') // 0
+  a.find('z') // -1
+  ```
+  - index
+  ```
+  a.index('a') // 0
+  a.index('z') // ERROR
+  ```
+
+* 올림/반올림/내림
+  - math.ceil(올림)
+  ```
+  import math
+  
+  math.ceil(31.415) // 32
+  ```
+  - round(반올림)
+  ```
+  round(31.415) // 32
+  round(31.415, 2) // 31.42 ## 숫자를 소숫점 2째 자리까지 반올림
+  round(31.415, -1) // 31.415 ## 숫자를 십 단위까지 반올림
+  ```
+  - math.floor, math.trunc(내림)
+  ```
+  import math
+  
+  math.floor(31.415) // 31
+  math.floor(-31.415) // -32
+  
+  math.trunc(-31.415) // -31 ## 0을 향해 내림
+  ```
+  
+* 숫자(문자열) 앞에 0 채우기
+  - zfill
+```
+a = '1'
+a.zfill(2) // '01'
 ```
