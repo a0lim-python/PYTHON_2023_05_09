@@ -6,7 +6,7 @@ S = input()
 letters = string.ascii_lowercase
 
 for i in letters:
-    print(S.find(i))
+    print(S.find(i))  ## find // index_num or -1
 
 print(result)
 
@@ -20,13 +20,14 @@ letters = string.ascii_lowercase
 
 for i in range(len(letters)):
     if letters[i] in S:
-        print(S.index(letters[i]))
+        print(S.index(letters[i])) ## index // index_num of ERROR
     else:
        print(-1)
 
 #####################################################################
     
 # NOT SOLVED
+## result shouldn't a list
 import string
 
 word = list(input())
