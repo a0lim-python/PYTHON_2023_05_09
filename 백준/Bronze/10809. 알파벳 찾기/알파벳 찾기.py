@@ -1,16 +1,18 @@
 # SOLVED 1
+
 import string
 
 S = input()
 letters = string.ascii_lowercase
-result = []
 
-for i in range(len(letters)):
-    result.append(S.find(letters[i]))
+for i in letters:
+    print(S.find(i))
 
 print(result)
 
+
 # SOLVED 2
+
 import string
 
 S = input()
@@ -21,8 +23,9 @@ for i in range(len(letters)):
         print(S.index(letters[i]))
     else:
        print(-1)
-    
 
+#####################################################################
+    
 # NOT SOLVED
 import string
 
