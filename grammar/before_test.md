@@ -69,3 +69,66 @@ print(a) ## '*bc'
 a = '1'
 a.zfill(2) // '01'
 ```
+
+* tuple 형태의 반복구문
+  - enumerate
+```
+t = [1,5,7,33,39,52]
+for i in enumerate(t):
+  print(i)
+  
+//
+{0, 1) ## (index, value)
+(1, 5)
+(2, 7)
+(3, 33)
+(4, 39)
+(5, 52)
+```
+
+* 연결 리스트 구현
+  - 노드 구현: 각 노드는 value(val)와 다음 노드의 값(next)를 가짐 -> 위치 정보
+```
+class ListNode:
+  def __init__(self, val = 0, next = None):
+    self.val = val
+    self.next = next
+```
+  - 연결 리스트 구현
+```
+  -- 재귀함수(my_function) 생성: solution 클래스에 저장
+class solution:
+  def my_function(self, l1: ListNode, l2: ListNode) -> ListNode: ## ListNode: 위의 ListNode 클래스를 사용(연결 리스트의 노드에 해당)
+  rev = None
+    if l1.val > l2.val:
+      rev.append(l1.val)
+    else:
+      rev.append(l2.val)
+    return
+
+  -- l1 연결 리스트 생성
+list1 = ListNode(1) ## val = 1
+list2 = ListNode(2) ## val = 2
+list3 = ListNode(4) ## val = 4
+l1 = list1 ## l1 연결 리스트의 초기 값: list1 -> 1
+list1.next = list2 ## 1의 다음 값은 list2(-> 2) => 1->2
+list2.next = list3 ## 2의 다음 값은 list3(-> 4) => 1->2->4
+
+  -- l2 연결 리스트 생성
+list4 = ListNode(1) ## val = 1
+list5 = ListNode(3) ## val = 3
+list6 = ListNode(4) ## val = 4
+l2 = list4 ## l1 연결 리스트의 초기 값: list4 -> 1
+list4.next = list5 ## 1의 다음 값은 list5(-> 3) => 1->3
+list5.next = list6 ## 5의 다음 값은 list6(-> 5) => 1->3->5
+
+  -- 구현
+head = my_function(l1, l2) ## my_function 실행
+while head: ## 연결 리스트의 처음부터 마지막까지 반복
+  print(head.val, end="") ## 첫번째 val을 출력
+  if head.next:
+    print("->", end="") ## 이후 "->"를 출력
+  head = head.next ## head를 다음 값으로 지정
+//
+1->3->4
+```
