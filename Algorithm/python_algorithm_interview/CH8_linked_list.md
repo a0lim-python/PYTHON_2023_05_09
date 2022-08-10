@@ -178,3 +178,73 @@ rev, rev.next, slow = slow, rev, slow.next ## 작업이 동시에 발생 // rev 
 rev, rev.next = slow, rev ## rev = 2->3 / rev.next = 1 => (rev = slow: 동일 참조 됨) => rev = 2->1 
 slow = slow.next ## -> slow = 2->1 / slow = 1
 ```
+
+## 14 두 정렬 리스트의 병합
+정렬되어 있는 두 연결 리스트를 합쳐라.  
+![image](https://user-images.githubusercontent.com/104348646/183900804-50745f37-4dff-45a8-a0ae-83e1231c1c0f.png)
+
+### 풀이 1. 재귀 구조로 연결
+```
+def mergeTwoLists(self, l1:ListNode, l2: ListNode) -> ListNode: ## l1/l2: 두 연결 리스트의 첫 번째 값
+    if (not l1) or (l2 and (l1.val > l2.val)):
+        l1, l2 = l2, l1 ## l1, l2 스왑
+    if l1: 
+        l1.next = self.mergeTwoLists(l1.next, 12) ## self.mergeTwoLists: 재귀호출
+    return l1
+```
+
+![image](https://user-images.githubusercontent.com/104348646/183900905-09523033-ccc1-442d-974b-15d8649e1bb8.png)
+
+* 연산자 우선순위  
+![image](https://user-images.githubusercontent.com/104348646/183901011-5dd05bea-1ced-42ac-872e-b5e9b6c15131.png)
+
+* 변수 스왑
+```
+    -- 임시변수 사용
+temp = a
+a = b
+b =temp
+
+x = 9; y = 4
+x += y ## x = 9 + 4 = 13
+y = x-y ## y = 13 - 4 = 9
+x -=y ## x = 13 - 9 = 4
+
+    -- 다중 할당(파이썬, C 가능)
+a: int = 1
+b: int = 2
+a, b = b, a
+```
+## 15 역순 연결 리스트
+연결 리스트를 뒤집어라.  
+![image](https://user-images.githubusercontent.com/104348646/183901402-1401e862-a496-41cc-9378-988d7f406af4.png)
+
+### 풀이 1. 재귀 구조로 뒤집기
+* 40 ms
+```
+def reverseList(self, head: ListNode) -> ListNode:
+    def reverse(node: Listnode, prev: ListNode = None):
+        if not node:
+            return prev
+        next, node.next = node.next, prev
+        return reverse(next, node)
+
+    return reverse(head)
+```
+
+![image](https://user-images.githubusercontent.com/104348646/183901611-819fb842-6dea-4e19-9cb3-4d22f6843dae.png)
+
+### 풀이 2. 반복 구조로 뒤집기
+* 32 ms
+```
+def reverseList(self, head: ListNode) -> ListNode:
+    node, prev = head, None ## node: 현재 노드 / prev: result
+
+    while node:
+        next, node.next = node.next, prev ## next: node 다음에 추가할 노드
+        prev, node = node, next
+
+    return prev
+```
+
+![image](https://user-images.githubusercontent.com/104348646/183901661-6a3945ca-3a6e-41c0-ad5d-74a213665408.png)
