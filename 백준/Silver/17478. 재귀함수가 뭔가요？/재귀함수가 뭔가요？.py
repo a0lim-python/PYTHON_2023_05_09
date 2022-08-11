@@ -1,3 +1,39 @@
+# 재귀
+N = int(input())
+
+first = '어느 한 컴퓨터공학과 학생이 유명한 교수님을 찾아가 물었다.'
+ask = '"재귀함수가 뭔가요?"'
+story1 = '"잘 들어보게. 옛날옛날 한 산 꼭대기에 이세상 모든 지식을 통달한 선인이 있었어.'
+story2 = '마을 사람들은 모두 그 선인에게 수많은 질문을 했고, 모두 지혜롭게 대답해 주었지.'
+story3 = '그의 답은 대부분 옳았다고 하네. 그런데 어느 날, 그 선인에게 한 선비가 찾아와서 물었어."'
+answer = '"재귀함수는 자기 자신을 호출하는 함수라네"'
+last = '라고 답변하였지.'
+
+def story(N: int, num=1): # 처음 num = 1 / 이후 재귀호출로 1씩 증가
+    if num > N:
+        return
+    elif num <= N:
+        print('____' * (num-1) + ask)
+        print('____' * (num-1) + story1)
+        print('____' * (num-1) + story2)
+        print('____' * (num-1) + story3)
+        return story(N, num+1)
+
+def last_answer(N: int):
+    if N < 0:
+        return
+    else:
+        print('____' * N + last)
+        return last_answer(N - 1)
+
+print(first)
+story(N)
+print('____' * N + ask)
+print('____' * N + answer)
+last_answer(N) # 구문을 나누어 def를 만들고 순서에 맞게 print함
+
+
+## for loop
 cnt = int(input())
 
 first = '어느 한 컴퓨터공학과 학생이 유명한 교수님을 찾아가 물었다.'
