@@ -1,5 +1,7 @@
 ## 차후 정리하면 좋을 자료들
 
+* 연결리스트 개념 정립(특히 root)
+
 * function annotation
   - https://bluese05.tistory.com/78
 
