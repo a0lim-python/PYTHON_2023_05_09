@@ -68,3 +68,29 @@ for p in range(N):
         prime_num += 1
 
 print(prime_num)
+
+
+# 소수 찾기 4: 제곱근 + 여러 개 수를 판별하는 경우(에라토스테네스)
+## 
+import math
+
+def is_prime(n: int):
+    arr = [True] * (n+1) # 특정 수가 지워졌는지 여부 판별
+    arr[0] = False
+    arr[1] = False ## 0 and 1 is not prime key
+    
+    for i in range(2, int(math.sqrt(n)+1)):
+        if arr[i] == True: ## prime key
+            j = 2 ## left prime key: 2(O), 4(X) -> start *2
+            
+            while (i * j) <= n: ## i ~ n에서
+                arr[i * j] = False ## i의 배수를 지움
+                j += 1
+                
+    return arr
+
+arr = is_prime(50) ## 1~50 판별
+
+for i in range(len(arr)):
+    if arr[i] == True: ## prime keys
+        print(i, end = ' ') ## 2 3 5 ... 43 47
