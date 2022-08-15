@@ -24,7 +24,7 @@ for i in range(N):
 print(prime_num)
 
 
-# 소수찾기 2: for loop
+# 소수 찾기 2: for loop
 ### n 이전까지 모든 수를 넣어야 하는 비효율성 있음
 N = int(input())
 prime = list(map(int, input().split()))
@@ -46,7 +46,7 @@ for p in range(N):
 print(prime_num)
 
 
-# 소수찾기3: 제곱근
+# 소수 찾기 3: 제곱근
 ## O(n/2)
 ### 약수의 대칭성(16의 약수는 1, 2, 4, 8, 16)을 이용해 소수찾기 2 방법의 절반 정도만 loop를 돌림
 import math
