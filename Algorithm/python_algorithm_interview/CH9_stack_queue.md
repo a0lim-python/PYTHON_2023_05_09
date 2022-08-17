@@ -150,3 +150,93 @@ class Mystack:
     def empty(self):
         return len(self.q) == 0
 ```
+
+## 24 스택을 이용한 큐 구현
+스택를 이용해 다음 연산을 지원하는 큐을 구현하라.  
+1. push(x): 요소를 큐 마지막에 삽입한다  
+2. pop(x): 큐 처음에 있는 요소를 삭제한다  
+3. peek(x): 큐 처음에 있는 요소를 조회온다  
+4. empty(x): 큐이 비어 있는지 여부를 리턴한다  
+![image](https://user-images.githubusercontent.com/104348646/185053193-43e2dc94-ef2c-4b0b-a23a-470efc943b2a.png)  
+
+### 1. 스택 2개 사용
+* O(1)
+```
+class MyQueue:
+    def __init__(self): ## 큐와 달리 push 함수에서 맨 처음 요소를 뺄 수 없음 -> 2개의 스택 사용
+        self.input = []
+        self.output = []
+        
+    def push(self, x):
+        self.input.append(x)
+        
+    def pop(self):
+        self.peek() ## 기존과 반대 순서
+        return self.output.pop() ## sel.output.pop(): 맨 뒤 요소 = sel.input.pop()의 맨 앞 요소
+    
+    def peek(self):
+        # output이 없으면 모두 재입력
+        if not self.output:
+            while self.input:
+                self.output.append(self.input.pop()) ## self.input.pop(): 맨 뒤 요소를 제거 후 self.output에 추가: self.out은 self.input의 반대 순서로 저장
+        return self.output[-1]
+    
+    def empty(self):
+        return self.input == [] and self.output == []
+```
+
+## 25 원형 큐 디자인
+원형 큐를 디자인하라  
+![image](https://user-images.githubusercontent.com/104348646/185053403-9ff52eb7-4c9a-4673-958d-70c123ee2268.png)  
+ 
+* 원형 큐(Circular Queue) (= 링 버퍼= Ring Buffer)  
+: 마지막 위치가 시작 위치와 연결되는 원형 구조  
+  - FIFO  
+  - cf) 기존의 큐  
+    : 공간이 다 차면 더이상 요소를 추가할 수 없음 <-> 앞쪽에 추가 가능  
+  - enQueue: rear 포인터가 앞으로 이동(추가)  
+  - deQueue: front 포인터가 앞으로 이동(삭제)  
+  - rear 포인터와 front 포인터가 같은 위치에서 만나게 되면, 여유 공간이 없음 -> 공간 부족 에러 발생  
+
+* 배열로 구현
+![image](https://user-images.githubusercontent.com/104348646/185053678-0b362e13-d9f1-4c4f-b02a-c396935d2a70.png)  
+![image](https://user-images.githubusercontent.com/104348646/185053718-74968cb1-8c1d-4ea0-9c8e-4316909696fb.png)  
+
+```
+class MyCircularQueue:
+    def __int__(self, k: int):
+        self.q = [None] * k ## base
+        self.maxlen = k
+        self.p1 = 0 ## front
+        self.p2 = 0 ## rear
+        
+    # enQueue(): rear 포인터 이동
+    def enQueue(self, value: int) -> bool:
+        if self.q[self.p2] is None:
+            self.q[self.p2] = value ## rear 포인터에 값 입력
+            self.p2 = (self.p2 + 1) % self.maxlen ## rear += 1 / 원형이므로 원형 큐의 길이인 k의 나머지값에 저장
+            return True
+        else: ## 종료 조건
+            return False
+        
+    # deQueue(): front 포인터 이동 (추출 x)
+    def deQueue(self) -> bool:
+        if self.q[self.p1] is None:
+            return False
+        else:
+            self.q[self.p1] = None ## 기존 front를 제거
+            self.p1 = (self.p1 + 1) % self.maxien ## front += 1 / 원형이므로 원형 큐의 길이인 k의 나머지값에 저장
+            return True
+        
+    def Front(self) -> int:
+        return -1 if self.q[self.p1] is None else self.q[self.p1] ## front 포인터의 위치
+    
+    def Rear(self) -> int:
+        return -1 if self.q[self.p2 - 1] is None else self.q[self.p2 - 1] ## rear 포인터의 위치: rear에 값을 넣고 마지막에 위치를 +1 함 -> -1해야 value 확인 가능
+    
+    def isEmpty(self) -> bool:
+        return self.pq == self.p2 and self.q[self.p1] is None
+    
+    def isFull(self) -> bool:
+        return self.p1 == self.p2 and self.q[self.p1] is not None
+```
