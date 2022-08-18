@@ -1,4 +1,4 @@
-def primes(n: int):
+def primes(n: int): ## same with 에라토스테네스의 체
     arr = [True] * (n + 1)
     arr[0] = False
     arr[1] = False
@@ -19,11 +19,11 @@ def primes(n: int):
 
 while True:
     cnt = 0
-    n = int(input())
+    n = int(input()) ## loop
     if n >= 1:
         for p in primes(2 * n):
-            if p > n and p <= 2 * n:
+            if p > n and p <= 2 * n: ## between n and 2 * n
                 cnt += 1
         print(cnt)
-    else:
+    else: ## n == 0; break
         break
