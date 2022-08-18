@@ -3,7 +3,7 @@ card = list(map(int, input().split()))
       
 answer = 0
 for i in card:
-    c = card[:]
+    c = card[:] ## shadow copy / only c will be changed(not card) / not Homogeneous
     c.remove(i)
     for j in c:
         c.remove(j)
