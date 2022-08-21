@@ -7,3 +7,8 @@ def solution(numbers):
     all = list(all)
     answer = sum(all)
     return answer
+
+## someone else's answer
+def solution(numbers):
+    answer = 45 - sum(numbers)
+    return answer
