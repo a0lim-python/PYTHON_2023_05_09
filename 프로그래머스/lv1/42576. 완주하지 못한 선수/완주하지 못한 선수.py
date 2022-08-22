@@ -1,3 +1,4 @@
+# collections.Counter + 2 case
 def solution(participant, completion, answer = None):
     import collections
     if set(participant) != set(completion): ## 비완주자가 동명이인이 아닌 경우
@@ -10,4 +11,3 @@ def solution(participant, completion, answer = None):
                 answer = i
                 break   
     return answer
-
