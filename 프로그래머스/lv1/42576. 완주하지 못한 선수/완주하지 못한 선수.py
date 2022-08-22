@@ -1,19 +1,13 @@
-def solution(participant, completion,answer = None):
+def solution(participant, completion, answer = None):
     import collections
-
-    participant = collections.Counter(participant)
-    completion = collections.Counter(completion)
-    
-    p_most = sorted(participant.most_common())
-    c_most = sorted(completion.most_common())
-    
-    for i in range(len(c_most)):
-        if p_most[i] != c_most[i]:
-            answer = p_most[i][0]
-            break
-    if answer is None:
-        answer = p_most[-1][0]
-    
-    
+    if set(participant) != set(completion): ## 비완주자가 동명이인이 아닌 경우
+        answer = list(set(participant) - set(completion))[0]
+    else: ## 비완주자가 동명이인인 경우
+        ls = list(set(participant))
+        p = collections.Counter(participant); c = collections.Counter(completion)
+        for i in ls:
+            if p[i] != c[i]:
+                answer = i
+                break   
     return answer
 
