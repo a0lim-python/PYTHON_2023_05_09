@@ -12,6 +12,19 @@ def solution(n):
                 answer += i
     return answer
 
+# sqrt + if 반복 제거
+
+def solution(n):
+    import math
+    
+    answer = 0
+    for i in range(1, math.floor(math.sqrt(n))+ 1): ## 약수의 작은 값만 추출/더함 & 상대되는 약수 더함
+        if n % i == 0:
+                answer += i + (n // i) ## 중복 포함한 약수의 합
+    if math.floor(math.sqrt(n)) == math.ceil(math.sqrt(n)): ## 중복이 발생한다면, 그 값은 n의 
+        answer -= int(math.sqrt(n))
+    return answer
+
 # someone else's answer: n // 2 -> 중복 제거 불필요
 
 def sumDivisor(num):
