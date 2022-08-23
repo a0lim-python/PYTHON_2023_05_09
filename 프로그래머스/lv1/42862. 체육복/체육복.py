@@ -1,5 +1,7 @@
+# while & 투 포인터
+
 def solution(n, lost, reserve):
-    i = 0
+    i = 0 ## 포인터 선택 지표
     reserve = sorted(reserve)
     while len(reserve) > 0:
         if i % 2 == 0: ## 앞부터 시작
