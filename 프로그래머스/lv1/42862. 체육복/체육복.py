@@ -28,3 +28,17 @@ def solution(n, lost, reserve):
     
     return n - len(lost)
             
+# someone else's answer
+
+def solution(n, lost, reserve):
+    reserve = sorted(reserve)
+    _reserve = [r for r in reserve if r not in lost] ## 자기 자신에게 빌리는 경우 삭제
+    _lost = [l for l in lost if l not in reserve]
+    for r in _reserve:
+        f = r - 1 ## 왼쪽, 오른쪽 순서로 삭제
+        b = r + 1
+        if f in _lost:
+            _lost.remove(f)
+        elif b in _lost:
+            _lost.remove(b)
+    return n - len(_lost)
