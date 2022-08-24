@@ -1,7 +1,9 @@
+# bin & zfill & for
+
 def solution(n, arr1, arr2):
     answer = []
     for i in range(n):
-        arr1[i] = str(bin(arr1[i])[2:]).zfill(n) ## 10진수를 n자리 2진수로 변환
+        arr1[i] = str(bin(arr1[i])[2:]).zfill(n) ## 10진수를 n자리 2진수로 변환 -> 문자열로 변환
         arr2[i] = str(bin(arr2[i])[2:]).zfill(n)
         
         answer.append('')
