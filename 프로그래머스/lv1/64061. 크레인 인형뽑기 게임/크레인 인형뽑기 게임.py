@@ -1,4 +1,5 @@
-# numpy를 사용하지 않음
+# zip & remove(0)
+## numpy를 사용하지 않음
 def solution(board, moves):
     answer = 0
     basket = []
