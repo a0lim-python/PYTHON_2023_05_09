@@ -86,6 +86,47 @@ for i in enumerate(t):
 (5, 52)
 ```
 
+* 두 리스트에서 같은 위치의 원소간의 집합/연산
+  - zip
+```
+mylist = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+new_list = list(map(list, zip(*mylist))) // [[1,4,7],[2,5,8],[3,6,9]]
+```
+```
+## 여러 개의 Iterable 동시에 순회할 때 사용
+
+list1 = [1,2,3,4]
+list2 = [100,120,30,300]
+list3 = [392,2,33,1]
+answer = []
+
+for num1, num2, num3 in zip(list1, list2, list3):
+    print(num1+num2+num3)
+// 493
+// 124
+// 66
+// 305
+```
+```
+## key 리스트와 value 리스트로 딕셔너리 생성하기
+
+animals = ['cat', 'dog', 'lion']
+sounds = ['meow', 'woof', 'roar']
+answer = dict(zip(animals, sounds)) // {'cat': 'meow', 'dog': 'woof', 'lion': 'roar'}
+```
+```
+## i번째 원소와 i+1번째 원소의 차를 출력하기
+
+def solution(mylist):
+    answer = []
+    for number1, number2 in zip(mylist, mylist[1:]): ## mylist의 2번째 원소부터 시작하는 리스트를 이용하여 차를 구함
+        answer.append(abs(number1 - number2)) ## abs: 절댓값으로 변환
+    return answer
+
+if __name__ == '__main__': ## 메인 함수(solution)의 선언, 시작
+    mylist = [83, 48, 13, 4, 71, 11]    
+    print(solution(mylist))
+
 * 연결 리스트 구현
   - 노드 구현: 각 노드는 value(val)와 다음 노드의 값(next)를 가짐 -> 위치 정보
 ```
