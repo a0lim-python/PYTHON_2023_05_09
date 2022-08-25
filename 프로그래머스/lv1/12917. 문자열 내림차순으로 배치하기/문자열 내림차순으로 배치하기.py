@@ -1,3 +1,5 @@
+# string.ascii_lower(upper)case & ''.join() & sorted
+
 def solution(s):
     import string
     lower = ''; upper = ''
