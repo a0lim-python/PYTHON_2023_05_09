@@ -1,3 +1,4 @@
+# 에라토스테네스의 체: 이중 for문 & True/False
 def solution(n):
     ## 에라토스테네스의 체
     answer = 0
