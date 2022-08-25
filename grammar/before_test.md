@@ -51,6 +51,14 @@ a // [1, 2, 1, 3] ## a[3]을 삭제
 del a[7] // IndexError ## 없는 위치의 값을 삭제하는 경우 Error
 ```
 
+* import string
+```
+string.ascii_lowercase ## 소문자 // abcdefghijklmnopqrstuvwxyz
+string.ascii_uppercase ## 대문자 // ABCDEFGHIJKLMNOPQRSTUVWXYZ
+string.ascii_letters ## 대소문자 모두 // abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+string.digits ## 숫자 //0123456789
+```
+
 * 순열과 조합
 ```
 import itertools
