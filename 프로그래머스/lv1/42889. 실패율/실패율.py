@@ -14,3 +14,17 @@ def solution(N, stages):
     answer = [answer[i][0] + 1 for i in range(N)]
         
     return answer
+
+# someone else's answer
+
+def solution(N, stages):
+    result = {}
+    denominator = len(stages)
+    for stage in range(1, N+1):
+        if denominator != 0:
+            count = stages.count(stage)
+            result[stage] = count / denominator ## dict로 저장 -> key: 단계, value: 실패율 => enumerate, answer[i][0] + 1 필요 없음
+            denominator -= count ## 남은 사람의 수
+        else:
+            result[stage] = 0
+    return sorted(result, key=lambda x : result[x], reverse=True) ## vakye(실패율)로 정렬 / 파이썬 3.7부터 dictionary의 순서 보장 -> 스테이지 단계 순서 고려 필요 없음
