@@ -1,3 +1,5 @@
+# string.ascii_upper(lower)case & index
+
 def solution(s, n):
     import string
     
