@@ -127,6 +127,7 @@ print(bin(10)[2:] ## 진법 표시 제거 // '1010'
 ```
   - 10진법 -> n진법(n != 2, 8, 16)
 ```
+## 1
 import string
 
 tmp = string.digits + string.ascii_lowercase ## 소문자 포함 -> 16진법 이상도 가능
@@ -137,7 +138,15 @@ def convert(num, base) :
     else :
         return convert(q, base) + tmp[r]
         
-print(cconvert(10,3)) ## 10을 3진법으로 변환 // '101'
+print(convert(10,3)) ## 10을 3진법으로 변환 // '101'
+
+## 2
+def solution(num):
+    tmp = ''
+    while num:
+        tmp += str(n % n)
+        num = num // n
+    return tmp[::-1]
 ```
  - n진법 -> m진법: n진법 -> 10진법 -> m진법
 ```
