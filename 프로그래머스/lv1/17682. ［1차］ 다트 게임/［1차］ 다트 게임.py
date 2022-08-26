@@ -2,11 +2,10 @@ def solution(dartResult):
     dart = []
     for i in range(len(dartResult)):
         try:
-            num = int(dartResult[i])
             if dartResult[i] == '0' and dartResult[i - 1] == '1': ## 10인 경우
                 dart[-1] *= 10
             else:
-                dart.append(num)
+                dart.append(int(dartResult[i]))
         except:
             ## bonus: 'S', 'D', 'T'
             if dartResult[i] == 'D':
