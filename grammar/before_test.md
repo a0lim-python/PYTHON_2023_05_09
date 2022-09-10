@@ -1,5 +1,15 @@
 ## 문자열(str)
 
+* 문자열 정렬
+```
+* ljust, center, rjust
+s = ‘abcd’
+n = 7
+s.ljust(n) ## 왼쪽 정렬 // 'abcd   '
+s.center(n) ## 가운데 정렬 '  abcd '
+s.rjust(n) ## 오른쪽 정렬 // '   abcd'
+```
+
 * 문자열을 하나씩 나누어 리스트로 정리하기
 ```
 a = '12345'
