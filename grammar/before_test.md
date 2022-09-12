@@ -46,20 +46,19 @@ print(a) ## '*bc'
 
 * 단어 삭제
   - remove: 값으로 삭제
-```
-a = [1, 2, 1, 2, 3]
-a.remove(2)
-a // [1, 1, 2, 3] ## 처음 나오는 2를 삭제
-a.remove(5) // ValueError ## 없는 값을 삭제하는 경우 Error
-
-```
+  ```
+  a = [1, 2, 1, 2, 3]
+  a.remove(2)
+  a // [1, 1, 2, 3] ## 처음 나오는 2를 삭제
+  a.remove(5) // ValueError ## 없는 값을 삭제하는 경우 Error
+  ```
   - del: 인덱스로 삭제
-```
-a = [1, 2, 1, 2, 3]
-del a[3]
-a // [1, 2, 1, 3] ## a[3]을 삭제
-del a[7] // IndexError ## 없는 위치의 값을 삭제하는 경우 Error
-```
+  ```
+  a = [1, 2, 1, 2, 3]
+  del a[3]
+  a // [1, 2, 1, 3] ## a[3]을 삭제
+  del a[7] // IndexError ## 없는 위치의 값을 삭제하는 경우 Error
+  ```
 
 * import string
 ```
@@ -124,57 +123,57 @@ a.zfill(2) // '01'
 
 * 진법
   - n진법 -> 10진법
-```
-* int(num, base = n) ## n진법으로 적힌 문자열 num을 10진법으로 변환
-```
+  ```
+  * int(num, base = n) ## n진법으로 적힌 문자열 num을 10진법으로 변환
+  ```
   - 10진법 -> 2, 8, 16진법
-```
-print(bin(10)) ## 숫자 10을 2진수로 변환 // 'Ob1010'
-print(oct(10)) ## 숫자 10을 8진수로 변환 // 'Oo12'
-print(hex(10)) ## 숫자 10을 16진수로 변환 // 'Oxa'
-
-print(bin(10)[2:] ## 진법 표시 제거 // '1010'
-```
+  ```
+  print(bin(10)) ## 숫자 10을 2진수로 변환 // 'Ob1010'
+  print(oct(10)) ## 숫자 10을 8진수로 변환 // 'Oo12'
+  print(hex(10)) ## 숫자 10을 16진수로 변환 // 'Oxa'
+  
+  print(bin(10)[2:] ## 진법 표시 제거 // '1010'
+  ```
   - 10진법 -> n진법(n != 2, 8, 16)
-```
-## 1
-import string
+    ```
+    ## 1
+    import string
 
-tmp = string.digits + string.ascii_lowercase ## 소문자 포함 -> 16진법 이상도 가능
-def convert(num, base) :
-    q, r = divmod(num, base) ## q: 몫, r: 나머지
-    if q == 0 :
-        return tmp[r] 
-    else :
-        return convert(q, base) + tmp[r]
-        
-print(convert(10,3)) ## 10을 3진법으로 변환 // '101'
+    tmp = string.digits + string.ascii_lowercase ## 소문자 포함 -> 16진법 이상도 가능
+    def convert(num, base) :
+        q, r = divmod(num, base) ## q: 몫, r: 나머지
+        if q == 0 :
+            return tmp[r] 
+        else :
+            return convert(q, base) + tmp[r]
 
-## 2
-def solution(num):
-    tmp = ''
-    while num:
-        tmp += str(n % n)
-        num = num // n
-    return tmp[::-1]
-```
- - n진법 -> m진법: n진법 -> 10진법 -> m진법
-```
-## 위의 함수와 동일
-print(convert(int('4', base = 5), 3)) ## 5진법으로 표현된 '4'를 10진수로 변환 & 10진수를 3진법으로 변환
-```
+    print(convert(10,3)) ## 10을 3진법으로 변환 // '101'
+
+    ## 2
+    def solution(num):
+        tmp = ''
+        while num:
+            tmp += str(n % n)
+            num = num // n
+        return tmp[::-1]
+    ```
+     - n진법 -> m진법: n진법 -> 10진법 -> m진법
+    ```
+    ## 위의 함수와 동일
+    print(convert(int('4', base = 5), 3)) ## 5진법으로 표현된 '4'를 10진수로 변환 & 10진수를 3진법으로 변환
+    ```
 
 * 최대 공약수, 최소공배수
   - 유클리드 호제법
-```
-def gcd(a, b): ## a, b의 최대공약수
-    while b > 0:
-        a, b = b, a % b
-    return a
+    ```
+    def gcd(a, b): ## a, b의 최대공약수
+        while b > 0:
+            a, b = b, a % b
+        return a
 
-def lcm(a, b): ## a, b의 최소공배수
-    return a * b / gcd(a, b)
-```
+    def lcm(a, b): ## a, b의 최소공배수
+        return a * b / gcd(a, b)
+    ```
 
 ----------------------
 ## 리스트(list)
