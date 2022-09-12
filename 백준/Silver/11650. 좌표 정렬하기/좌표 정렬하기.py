@@ -6,4 +6,4 @@ for i in range(N):
     
 l.sort(key = lambda x: (x[0], x[1]))
 for i in l:
-       print(i[0], i[1])
+    print(i[0], i[1])
