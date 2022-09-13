@@ -525,4 +525,4 @@ while head: ## 연결 리스트의 처음부터 마지막까지 반복
     ## ^          / [0-9] / {3} / - ##
     ## 처음에 위치 / 숫자 / 3개 / '-' ##
     ```
-     + 예제: https://jjuha-dev.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A42021-KAKAO-BLIND-RECRUITMENT-%EC%8B%A0%EA%B7%9C-%EC%95%84%EC%9D%B4%EB%94%94-%EC%B6%94%EC%B2%9CLV1-%ED%8C%8C%EC%9D%B4%EC%8D%ACPython
+     + 예제: https://github.com/a0lim/PYTHON/blob/main/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/lv1/72410.%E2%80%85%EC%8B%A0%EA%B7%9C%E2%80%85%EC%95%84%EC%9D%B4%EB%94%94%E2%80%85%EC%B6%94%EC%B2%9C/%EC%8B%A0%EA%B7%9C%E2%80%85%EC%95%84%EC%9D%B4%EB%94%94%E2%80%85%EC%B6%94%EC%B2%9C.py
