@@ -300,6 +300,42 @@ if __name__ == '__main__': ## 메인 함수(solution)의 선언, 시작
     print(solution(mylist))
 ```
 
+## 딕셔너리(dictionary)
+
+* collections
+
+    - defaultdict  
+        : 존재하지 않는 키를 조회할 경우, 에러 메시지를 출력하는 대신 디폴트 값으로 해당 키에 대한 딕셔너리 아이템을 생성
+    ```
+    a = collections.defaultdict(int)
+    a['A'] = 5
+    a['B'] = 4
+    a // defaultdict(<class 'int'>, {'A':5, 'B':4})
+
+        -- 존재하지 않는 키인 C를 생성(기존: KeyError)
+    a['C'] += 1 // defaultdict(<class 'int'>, {'A':5, 'B':4, 'C':1})
+    ```
+
+    - Counter  
+        : 아이템에 대한 개수를 계산해 딕셔너리로 리턴
+    ```
+    a = [1,2,3,4,5,5,5,6,6]
+    b = collections.Counter(a)
+    b // Counter({5:3, 6:2, 1:1, 2:1, 3:1, 4:1})
+
+    type(b) // <class 'collections.Counter'>
+
+        -- 가장 빈도 수가 높은 요소 추출
+    b.most_common(2) // [(5,3), (6,2)]
+    ```
+
+    - OrderdDict  
+        : 입력 순서 유지(버전 3.7: 자동 / 3.6 이하: 유지 설정필요)
+    ```
+    collections.OrderDict({'banana':3, 'apple':4, 'pear':1, 'orange':2})
+    // OrderDict({'banana':3, 'apple':4, 'pear':1, 'orange':2}) 로 순서 유지
+    ```
+
 ## 튜플(tuple)
 
 * tuple 형태의 반복구문
