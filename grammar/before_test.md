@@ -1,6 +1,25 @@
 ## 문자열(str)
+* 입력 받기
+  - input()
+  ```
+  a = input()
+  a = int(input())
+  a, b = map(int, input().split())
+  a = list(map(int, input().split()))
+  ```
+  
+  - sys.stdin.readline(): 반복 입력이 많은 경우, 시간 단축  
+    : input()과 결과 같음. 단, 개행문자(\n)이 같이 입력 받아짐
+  ```
+  import sys
+  for i in range(1000000):
+    a = int(sys.stdin.readline()) // 0 ## 숫자는 int() 등으로 개행문자를 제거 cf) sys.stdin.readline() = '0\n'
+    
+  ## 값을 저장
+  data = [sys.stdin.readline().strip() for i in range(1000000)] ## strip(): 문자열의 앞과 끝의 공백 문자를 제거
+  ```
 
-* 문자열 정렬
+* 문자열 좌우 정렬
 ```
 * ljust, center, rjust
 s = ‘abcd’
@@ -16,11 +35,13 @@ a = '12345'
 list(a) // ['1', '2', '3', '4', '5']
 ```
 
-* 문자열 뒤집기
+* 문자열 정렬(뒤집기)
+  - array, list, tuple도 가능
   - [::-1]
 ```
 a = '734 893'
 a[::-1] // '398 437'
+a[2:0:-1] // '437' ## a[0:2]인 '734'을 역순으로 뒤집기
 ```
 
 * 단어 변환
@@ -114,6 +135,7 @@ divmode(10, 3) ## 몫, 나머지 // (3, 1)
   math.trunc(-31.415) // -31 ## 0을 향해 내림
   ```
 * 정렬
+  - 문자열도 가능(알파벳 순서)
   - sort: 원본을 변경
   ```
   ## 기본
