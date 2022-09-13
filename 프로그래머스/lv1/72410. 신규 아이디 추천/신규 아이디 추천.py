@@ -12,5 +12,4 @@ def solution(new_id):
         while len(rec) < 3:
             rec+=rec[-1]
 
-    answer = rec
-    return answer
+    return rec
