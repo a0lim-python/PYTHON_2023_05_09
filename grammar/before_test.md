@@ -81,6 +81,13 @@ print(a) ## '*bc'
   del a[7] // IndexError ## 없는 위치의 값을 삭제하는 경우 Error
   ```
 
+* 대소문자 변환
+```
+a = 'abc'
+a.upper() // 'ABC'
+a.lower() // 'abc'
+```
+
 * import string
 ```
 string.ascii_lowercase ## 소문자 // abcdefghijklmnopqrstuvwxyz
